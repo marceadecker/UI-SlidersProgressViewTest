@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="UI_SlidersProgressView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,111 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="Vzh-bS-tys">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-kl-4zi">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsx-L0-yA5">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="myButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="354" width="217" height="98"/>
+                                </variation>
+                                <connections>
+                                    <action selector="myButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DcP-a2-qQh"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="x6r-Qy-flf">
+                                <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
+                                <color key="tintColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="EJA-I3-dRK"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-dv-m7a">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="STOP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="443" width="192" height="98"/>
+                                </variation>
+                                <connections>
+                                    <action selector="stopButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NIa-Y8-EBt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="x6r-Qy-flf" secondAttribute="bottom" constant="419" id="AAH-BU-cdf"/>
+                            <constraint firstItem="x6r-Qy-flf" firstAttribute="leading" secondItem="bR3-kl-4zi" secondAttribute="leading" id="Gru-Wo-Do4"/>
+                            <constraint firstItem="Vzh-bS-tys" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="PaD-9d-PHn"/>
+                            <constraint firstItem="Vzh-bS-tys" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="SOJ-rt-zXV"/>
+                            <constraint firstItem="Vzh-bS-tys" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="XuT-t6-aGS"/>
+                            <constraint firstItem="x6r-Qy-flf" firstAttribute="top" secondItem="bR3-kl-4zi" secondAttribute="bottom" constant="43" id="dmS-BQ-MwJ"/>
+                            <constraint firstItem="x6r-Qy-flf" firstAttribute="leading" secondItem="Vzh-bS-tys" secondAttribute="leading" id="e3B-q7-yVg"/>
+                            <constraint firstItem="x6r-Qy-flf" firstAttribute="trailing" secondItem="Vzh-bS-tys" secondAttribute="trailing" id="f1o-2e-Cm1"/>
+                            <constraint firstItem="x6r-Qy-flf" firstAttribute="trailing" secondItem="bR3-kl-4zi" secondAttribute="trailing" id="ufU-yZ-bPG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Vzh-bS-tys"/>
+                                <exclude reference="bR3-kl-4zi"/>
+                                <exclude reference="hsx-L0-yA5"/>
+                                <exclude reference="x6r-Qy-flf"/>
+                                <exclude reference="A5b-dv-m7a"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AAH-BU-cdf"/>
+                                <exclude reference="PaD-9d-PHn"/>
+                                <exclude reference="SOJ-rt-zXV"/>
+                                <exclude reference="XuT-t6-aGS"/>
+                                <exclude reference="Gru-Wo-Do4"/>
+                                <exclude reference="dmS-BQ-MwJ"/>
+                                <exclude reference="e3B-q7-yVg"/>
+                                <exclude reference="f1o-2e-Cm1"/>
+                                <exclude reference="ufU-yZ-bPG"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Vzh-bS-tys"/>
+                                <include reference="bR3-kl-4zi"/>
+                                <include reference="hsx-L0-yA5"/>
+                                <include reference="x6r-Qy-flf"/>
+                                <include reference="A5b-dv-m7a"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AAH-BU-cdf"/>
+                                <include reference="PaD-9d-PHn"/>
+                                <include reference="SOJ-rt-zXV"/>
+                                <include reference="XuT-t6-aGS"/>
+                                <include reference="Gru-Wo-Do4"/>
+                                <include reference="dmS-BQ-MwJ"/>
+                                <include reference="e3B-q7-yVg"/>
+                                <include reference="f1o-2e-Cm1"/>
+                                <include reference="ufU-yZ-bPG"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="myLabel" destination="bR3-kl-4zi" id="XZD-HB-L0D"/>
+                        <outlet property="myProgView" destination="Vzh-bS-tys" id="52X-ap-ROK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="379.5" y="337"/>
         </scene>
     </scenes>
 </document>
